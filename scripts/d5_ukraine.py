@@ -32,10 +32,10 @@ streetlights = saanich_gdf("Streetlights", bbox)
 xmin, ymin, xmax, ymax = bbox
 xlim = [xmin, xmax]
 ylim = [ymin, ymax]
-ax = zoning.plot(column="TYPE", cmap="Set3", alpha=0.1)
-parcels.plot(ax=ax, color="grey", alpha=0.1, edgecolor="black", linewidth=1)
-buildings.plot(ax=ax, color="black", alpha=0.6)
-streetlights.plot(ax=ax, color="black", alpha=0.6)
+ax = parcels.plot(color="grey", alpha=0.1, edgecolor="black", linewidth=1)
+streetlights.buffer(15).plot(ax=ax, color="yellow", alpha=0.7)
+streetlights.plot(ax=ax, color="black")
+buildings.plot(ax=ax, color="#0057B7")
 ax.set_xlim(xlim)
 ax.set_ylim(ylim)
 ax.set_axis_off()
