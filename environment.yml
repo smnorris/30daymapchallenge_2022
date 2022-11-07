@@ -1,0 +1,29 @@
+name: 30daymapchallenge
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - make
+  - wget
+  - zip
+  - unzip
+  - gdal>=3.5
+  - python>3.9
+  - pip
+  - requests
+  - owslib
+  - rasterio
+  - geopandas>=0.10.2
+  - psycopg2
+  - sqlalchemy
+  - geoalchemy2
+  - scikit-image
+  - seaborn
+  - pip:
+      - bcdata==0.7.4
+variables:
+  PGHOST: localhost
+  PGUSER: postgres
+  PGPORT: 5432
+  PGDATABASE: bcfishpass
+  DATABASE_URL: postgresql://postgres@localhost:5432/bcfishpass
