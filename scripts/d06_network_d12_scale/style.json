@@ -1,0 +1,36 @@
+{
+	"version": 8,
+	"name": "30DayMapchallenge_7_Network",
+	"sources": {
+		"streams": {
+			  "type": "vector",
+			  "tiles": [
+				"https://tiles.hillcrestgeo.ca/bcfishpass/postgisftw.fwa_streamsasmvt/{z}/{x}/{y}.pbf?limit=65000"
+			  ],
+			  "minzoom": 4,
+			  "maxzoom": 20
+		}
+	},
+	"layers": [
+		{
+		  "id": "streams",
+		  "type": "line",
+		  "source": "streams",
+		  "source-layer": "default",
+		  "layout": {"line-join": "round", "line-cap": "round"},
+		  "paint": {
+			  "line-color": "white",
+			  "line-width": [
+					"interpolate",
+					["exponential", 2],
+					["zoom"],
+					10, ["*", ["get", "channel_width"], ["^", 2, -6]],
+					24, ["*", ["get", "channel_width"], ["^", 2, 8]]
+				]
+
+		  },
+		  "minzoom": 4,
+		  "maxzoom": 20
+		}
+	]
+}
